@@ -4,26 +4,26 @@
         font-weight: normal;
     }
     
-    .product-name {
+    .car-name {
         font-size: 1.5rem;
         font-weight: 700;
     }
     
-    .product-description {
+    .car-description {
         margin: 0 0 1rem 0;
     }
     
-    .product-category-icon {
+    .car-category-icon {
         vertical-align: middle;
         margin-right: .5rem;
     }
     
-    .product-category {
+    .car-category {
         font-weight: 600;
         vertical-align: middle;
     }
     
-    .product-list-item {
+    .car-list-item {
         display: flex;
         align-items: center;
         padding: 1rem;
@@ -35,7 +35,7 @@
             margin-right: 2rem;
         }
     
-        .product-list-detail {
+        .car-list-detail {
             flex: 1 1 0;
         }
     
@@ -43,14 +43,14 @@
             margin: 0 0 .5rem 0;
         }
     
-        .product-price {
+        .car-price {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: .5rem;
             align-self: flex-end;
         }
     
-        .product-list-action {
+        .car-list-action {
             display: flex;
             flex-direction: column;
         }
@@ -60,12 +60,12 @@
         }
     }
     
-    .product-grid-item {
+    .car-grid-item {
         margin: .5em;
         border: 1px solid #dee2e6;
     
-        .product-grid-item-top,
-        .product-grid-item-bottom {
+        .car-grid-item-top,
+        .car-grid-item-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -77,11 +77,11 @@
             margin: 2rem 0;
         }
     
-        .product-grid-item-content {
+        .car-grid-item-content {
             text-align: center;
         }
     
-        .product-price {
+        .car-price {
             font-size: 1.5rem;
             font-weight: 600;
         }
@@ -96,7 +96,7 @@
 }
 
 @media screen and (max-width: 576px) {
-	:host ::ng-deep .product-list-item {
+	:host ::ng-deep .car-list-item {
 		flex-direction: column;
 		align-items: center;
 
@@ -105,20 +105,20 @@
 			margin: 2rem 0;
 		}
 
-		.product-list-detail {
+		.car-list-detail {
 			text-align: center;
 		}
 
-		.product-price {
+		.car-price {
 			align-self: center;
 		}
 
-		.product-list-action {
+		.car-list-action {
 			display: flex;
 			flex-direction: column;
 		}
 
-		.product-list-action {
+		.car-list-action {
 			margin-top: 2rem;
 			flex-direction: row;
 			justify-content: space-between;

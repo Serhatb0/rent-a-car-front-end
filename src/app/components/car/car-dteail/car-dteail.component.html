@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1">
+              <img
+                height="500px"
+                src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              />
+            </div>
+
+            <div class="tab-pane" id="pic-2"><img /></div>
+            <div class="tab-pane" id="pic-3">
+              <img
+                src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              />
+            </div>
+            <div class="tab-pane" id="pic-4">
+              <img
+                src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              />
+            </div>
+            <div class="tab-pane" id="pic-5">
+              <img
+                src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              />
+            </div>
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li class="active">
+              <a data-target="#pic-1" data-toggle="tab"
+                ><img
+                  src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-2" data-toggle="tab"
+                ><img
+                  src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-3" data-toggle="tab"
+                ><img
+                  src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-4" data-toggle="tab"
+                ><img
+                  src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-5" data-toggle="tab"
+                ><img
+                  src="https://pbs.twimg.com/media/FJU9kNtXsAAfiY6?format=jpg&name=small"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title">{{ car.brandName }}</h3>
+          <div class="rating">
+            <div class="stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <span class="review-no"
+              ><strong>Kilometer : </strong> {{ car.kilometer }}</span
+            >
+          </div>
+          <p class="product-description">
+            <strong>Description : </strong> {{ car.description }}
+          </p>
+          <h4 class="price">
+            current price: <span>${{ car.dailyPrice }}</span>
+          </h4>
+          <p class="vote">
+            <strong>Segment Name : </strong>{{ car.segmentName }}
+          </p>
+
+          <h5  class="colors">
+            colors:
+            <span class="color {{ car.colorName }}"></span>
+          </h5>
+          <div class="action">
+            <button class="add-to-cart btn btn-default" type="button">
+              Rental
+            </button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

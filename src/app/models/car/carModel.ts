@@ -1,4 +1,4 @@
-export interface CarListModel{
+export interface CarModel{
     id: number
     dailyPrice: number,
     modelYear: number,
