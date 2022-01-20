@@ -11,15 +11,16 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-rental-add',
   templateUrl: './rental-add.component.html',
   styleUrls: ['./rental-add.component.css'],
 })
 export class RentalAddComponent implements OnInit {
-  cities:CityListModel[]=[]
+  cities: CityListModel[] = [];
   car: CarListModel;
-  carId:number
+  carId: number;
   individualCustomerAddForm = new FormGroup({
     pickUpCityId: new FormControl(''),
     returnCityId: new FormControl(''),
@@ -31,19 +32,19 @@ export class RentalAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private rentalService: RentalService,
-    private cityService:CityService,
-    private carService:CarService,
-    private route:ActivatedRoute
+    private cityService: CityService,
+    private carService: CarService,
+    private route: ActivatedRoute,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params=>{
-      this.carId = params["carId"];
-    })
-this.getCarsById();
+    this.route.params.subscribe((params) => {
+      this.carId = params['carId'];
+    });
+    this.getCarsById();
     this.createIndividualCustomerAddForm();
     this.getCity();
-    
   }
 
   createIndividualCustomerAddForm() {
@@ -53,7 +54,7 @@ this.getCarsById();
       rentedKilometer: ['', Validators.required],
       rentDate: ['', Validators.required],
       customerId: ['', Validators.required],
-      carId:this.carId,
+      carId: this.carId,
     });
   }
 
@@ -66,31 +67,32 @@ this.getCarsById();
 
       this.rentalService.add(createIndividualCustomerModel).subscribe(
         (response) => {
-          console.log('Eklendi');
+          this.toastrService.success(response.message, 'Başarılı');
         },
         (responseError) => {
-          if (responseError.error.Errors.length > 0) {
+          if (responseError.error.length > 0) {
             for (let i = 0; i < responseError.error.Errors.length; i++) {
-              console.log('hatalı');
+              this.toastrService.error(
+                responseError.error.Errors[i].ErrorMessage,
+                'Doğrulama hatası'
+              );
             }
           }
-          
-          console.log('hatalı');
         }
       );
     } else {
-      console.log('Form Eksik');
+      this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
-   }
-
-   getCity(){
-    this.cityService.getCity().subscribe(response => {
-      this.cities =response.data;
-    })
   }
-  getCarsById(){
-    this.carService.getCarsById(this.carId).subscribe(response => {
-      this.car = response.data
-    })
+
+  getCity() {
+    this.cityService.getCity().subscribe((response) => {
+      this.cities = response.data;
+    });
+  }
+  getCarsById() {
+    this.carService.getCarsById(this.carId).subscribe((response) => {
+      this.car = response.data;
+    });
   }
 }

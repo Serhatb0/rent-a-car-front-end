@@ -16,6 +16,9 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {DropdownModule } from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastrModule} from "ngx-toastr";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,6 +54,8 @@ import { CarAddComponent } from './components/car/car-add/car-add.component';
 
   ],
   imports: [
+    MessagesModule,
+    MessageModule,
     InputNumberModule,
     CalendarModule,
     BrowserAnimationsModule,
@@ -71,6 +76,9 @@ import { CarAddComponent } from './components/car/car-add/car-add.component';
     PanelModule,
     PasswordModule,
     CardModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
     
     
    

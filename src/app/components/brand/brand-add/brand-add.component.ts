@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
@@ -20,7 +21,8 @@ export class BrandAddComponent implements OnInit {
   });
   constructor(
     private formBuilder: FormBuilder,
-    private brandService: BrandService
+    private brandService: BrandService,
+    private toastrService:ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -40,20 +42,27 @@ export class BrandAddComponent implements OnInit {
       
       this.brandService.add(createBrandModel).subscribe(
         (response) => {
-          console.log('Eklendi');
+          if(response.success){
+            this.toastrService.success(response.message, 'Başarılı');
+          }else{
+            this.toastrService.error(
+              response.message,
+              'Doğrulama hatası'
+            );
+          }
+
+        
         },
         (responseError) => {
-          // if (responseError.error.Errors.length > 0) {
-          //   for (let i = 0; i < responseError.error.Errors.length; i++) {
-          //     console.log('hatalı');
-          //   }
-          // }
-          //     
-          console.log('hatalı');
+          if (responseError.error.Errors.length > 0) {
+            for (let i = 0; i < responseError.error.Errors.length; i++) {
+             
+            }
+          }
         }
       );
-    } else {
-      console.log('Form Eksik');
+    }  else {
+      this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
   }
 }

@@ -12,6 +12,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-car-add',
   templateUrl: './car-add.component.html',
@@ -39,7 +40,8 @@ export class CarAddComponent implements OnInit {
     private segmentService: SegmentService,
     private brandService: BrandService,
     private colorService: ColorService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -69,20 +71,21 @@ export class CarAddComponent implements OnInit {
 
       this.carService.add(createCarModel).subscribe(
         (response) => {
-          console.log('Eklendi');
+          this.toastrService.success(response.message, 'Başarılı');
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {
             for (let i = 0; i < responseError.error.Errors.length; i++) {
-              console.log('hatalı');
+              this.toastrService.error(
+                responseError.error.Errors[i].ErrorMessage,
+                'Doğrulama hatası'
+              );
             }
           }
-
-          console.log('hatalı');
         }
       );
     } else {
-      console.log('Form Eksik');
+      this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
   }
 
