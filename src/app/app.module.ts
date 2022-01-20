@@ -14,6 +14,8 @@ import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {DropdownModule } from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,8 +26,14 @@ import { CarComponent } from './components/car/car.component';
 import { CarDteailComponent } from './components/car/car-dteail/car-dteail.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { HomeComponent } from './components/home/home.component';
-import { BrandAddComponent } from './components/brand-add/brand-add.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms"
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CityComponent } from './components/city/city.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +43,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms"
     CarDteailComponent,
     NaviComponent,
     HomeComponent,
-    BrandAddComponent
+    BrandAddComponent,
+    ColorAddComponent,
+    RentalAddComponent,
+    CityComponent,
+    CarAddComponent,
+
   ],
   imports: [
+    InputNumberModule,
+    CalendarModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     CarouselModule,

@@ -1,0 +1,73 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><h5 class="title">Rental Added</h5></div>
+      <div class="card-body">
+        <form [formGroup]="individualCustomerAddForm">
+          <div class="form-group">
+            <label for="name">Pickup City</label>
+            <br />
+            <p-dropdown
+              id="city"
+              [options]="cities"
+              optionValue="id"
+              optionLabel="name"
+              formControlName="pickUpCityId"
+            ></p-dropdown>
+          </div>
+          <div class="form-group">
+            <label for="name">Return City</label>
+            <br />
+
+            <p-dropdown
+              id="city"
+              [options]="cities"
+              optionValue="id"
+              optionLabel="name"
+              formControlName="returnCityId"
+            ></p-dropdown>
+          </div>
+          <div class="mb-3">
+            <label for="name">rentedKilometer</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                formControlName="rentedKilometer"
+                class="form-control"
+                placeholder="rentedKilometer"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Return City</label>
+            <br />
+            <p-calendar
+              [showIcon]="true"
+              formControlName="rentDate"
+              dateFormat="yy.dd.mm"
+            ></p-calendar>
+          </div>
+          <div class="mb-3">
+            <label for="name">customerId</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                formControlName="customerId"
+                class="form-control"
+                placeholder="customerId"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">DailyPrice : {{car.dailyPrice}} </label>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>

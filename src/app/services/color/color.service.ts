@@ -1,3 +1,5 @@
+import { ResponseModel } from './../../models/responseModel';
+import {  CreateColorModel } from './../../models/color/createColorModel';
 import { ColorListModel } from './../../models/color/colorListModel';
 import { ListResponseModel } from './../../models/listResponseModel';
 import { HttpClient } from '@angular/common/http';
@@ -16,5 +18,10 @@ export class ColorService {
     return this.httpClient.get<ListResponseModel<ColorListModel>>(
       this.apiUrl + 'getall'
     );
+  }
+
+  add(createColorModel:CreateColorModel):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"add",createColorModel)
+    
   }
 }

@@ -90,9 +90,10 @@
             <span class="color {{ car.colorName }}"></span>
           </h5>
           <div class="action">
-            <button class="add-to-cart btn btn-default" type="button">
+            <a  [routerLink]="['/car/rental', car.id]">
+            <button  class="add-to-cart btn btn-default" type="button">
               Rental
-            </button>
+            </button></a>
           
           </div>
         </div>
