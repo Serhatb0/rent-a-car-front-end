@@ -1,0 +1,83 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Car Added</h5></div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+              <div class="form-group">  
+                <label for="name">Daily Price</label>
+                <br>
+            <p-inputNumber  [useGrouping]="false"  formControlName="dailyPrice"></p-inputNumber>
+              </div>
+              <div class="form-group">  
+                <label for="name">Model Year</label>
+                <br>
+            <p-inputNumber  [useGrouping]="false" formControlName="modelYear"></p-inputNumber>
+              </div>
+              <div class="form-group">  
+                <label for="name">Description</label>
+                <br>
+                <input formControlName="description" type="text" pInputText />
+              </div>
+              <div class="form-group">  
+                <label for="name">Findex Score</label>
+                <br>
+            <p-inputNumber  formControlName="findexScore"></p-inputNumber>
+              </div>
+              <div class="form-group">  
+                <label for="name">Kilometer</label>
+                <br>
+            <p-inputNumber  formControlName="kilometer"></p-inputNumber>
+              </div>
+            <div class="form-group">
+              <label for="name">Color</label>
+              <br />
+              <p-dropdown
+                id="color"
+                [options]="colors"
+                optionValue="id"
+                optionLabel="name"
+                formControlName="colorId"
+              ></p-dropdown>
+            </div>
+            <div class="form-group">
+              <label for="name">Brand</label>
+              <br />
+  
+              <p-dropdown
+                id="brand"
+                [options]="brands"
+                optionValue="id"
+                optionLabel="name"
+                formControlName="brandId"
+              ></p-dropdown>
+            </div>
+            <div class="form-group">
+                <label for="name">Segments</label>
+                <br />
+    
+                <p-dropdown
+                  id="segment"
+                  [options]="segments"
+                  optionValue="id"
+                  optionLabel="segmentName"
+                  formControlName="segmentId"
+                ></p-dropdown>
+              </div>
+              <div class="form-group">  
+                <label for="name">Minimum Age</label>
+                <br>
+            <p-inputNumber  formControlName="minimumAge"></p-inputNumber>
+              </div>
+        
+        
+            
+        
+          </form>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>

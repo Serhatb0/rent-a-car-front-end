@@ -1,3 +1,5 @@
+import { ResponseModel } from './../../models/responseModel';
+import { CreateCarModel } from './../../models/car/createCarModel';
 import { InputTextModule } from 'primeng/inputtext';
 import { CarModel } from './../../models/car/carModel';
 import { SingleResponseModel } from './../../models/singleResponseModel';
@@ -31,5 +33,10 @@ export class CarService {
     return this.httpClient.get<SingleResponseModel<CarModel>>(
       this.apiUrl + `?id=${carId}`
     );
+  }
+
+  add(createCarModel:CreateCarModel):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"/add",createCarModel)
+    
   }
 }

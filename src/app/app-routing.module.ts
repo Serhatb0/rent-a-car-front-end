@@ -1,3 +1,4 @@
+import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"color/add" ,component:ColorAddComponent},
   {path:"car/rental/:carId" ,component:RentalAddComponent},
   {path:"city" ,component:CityComponent},
+  {path:"cars/add",component:CarAddComponent }
 
 
 

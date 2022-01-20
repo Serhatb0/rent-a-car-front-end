@@ -16,7 +16,7 @@ export class NaviComponent implements OnInit {
     this.items = [
       {label: 'Home', icon: 'pi pi-fw pi-home' ,routerLink:"/home" },
       {label: 'Rental', icon: 'pi pi-fw pi-car', routerLink:"/car"},
-      {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
+      {label: 'Car Added', icon: 'pi pi-fw pi-pencil' ,routerLink:"/cars/add/" },
       {label: 'Documentation', icon: 'pi pi-fw pi-file'},
       {label: 'Settings', icon: 'pi pi-fw pi-cog'}
   ];

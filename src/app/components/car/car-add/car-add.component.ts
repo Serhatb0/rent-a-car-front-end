@@ -15,13 +15,12 @@ import {
 @Component({
   selector: 'app-car-add',
   templateUrl: './car-add.component.html',
-  styleUrls: ['./car-add.component.css']
+  styleUrls: ['./car-add.component.css'],
 })
 export class CarAddComponent implements OnInit {
-  colors:ColorListModel[] = []
-  brands:BrandListModel[]=[]
-  segments:CarSegmentListModel[]=[]
-
+  colors: ColorListModel[] = [];
+  brands: BrandListModel[] = [];
+  segments: CarSegmentListModel[] = [];
 
   carAddForm = new FormGroup({
     dailyPrice: new FormControl(''),
@@ -33,18 +32,15 @@ export class CarAddComponent implements OnInit {
     brandId: new FormControl(''),
     segmentId: new FormControl(''),
     minimumAge: new FormControl(''),
-
-
   });
 
   constructor(
-    private carService:CarService,
-    private segmentService:SegmentService,
-    private brandService:BrandService,
-    private colorService:ColorService,
-    private formBuilder:FormBuilder
-
-  ) { }
+    private carService: CarService,
+    private segmentService: SegmentService,
+    private brandService: BrandService,
+    private colorService: ColorService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.createCarAddForm();
@@ -52,7 +48,6 @@ export class CarAddComponent implements OnInit {
     this.getBrands();
     this.getSegment();
   }
-
 
   createCarAddForm() {
     this.carAddForm = this.formBuilder.group({
@@ -65,27 +60,47 @@ export class CarAddComponent implements OnInit {
       brandId: ['', Validators.required],
       segmentId: ['', Validators.required],
       minimumAge: ['', Validators.required],
-
     });
   }
 
+  add() {
+    if (this.carAddForm.valid) {
+      let createCarModel = Object.assign({}, this.carAddForm.value);
 
+      this.carService.add(createCarModel).subscribe(
+        (response) => {
+          console.log('Eklendi');
+        },
+        (responseError) => {
+          if (responseError.error.Errors.length > 0) {
+            for (let i = 0; i < responseError.error.Errors.length; i++) {
+              console.log('hatalı');
+            }
+          }
 
-  getColors(){
-   this.colorService.getColors().subscribe(response => {
-     this.colors = response.data
-   })
+          console.log('hatalı');
+        }
+      );
+    } else {
+      console.log('Form Eksik');
+    }
   }
 
-  getBrands(){
-    this.brandService.getBrands().subscribe(response => {
-      this.brands = response.data
-    })
+  getColors() {
+    this.colorService.getColors().subscribe((response) => {
+      this.colors = response.data;
+    });
   }
 
-  getSegment(){
-    this.segmentService.getSegment().subscribe(response => {
+  getBrands() {
+    this.brandService.getBrands().subscribe((response) => {
+      this.brands = response.data;
+    });
+  }
+
+  getSegment() {
+    this.segmentService.getSegment().subscribe((response) => {
       this.segments = response.data;
-    })
+    });
   }
 }
