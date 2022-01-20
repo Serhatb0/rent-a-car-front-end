@@ -13,7 +13,6 @@ import {RatingModule} from 'primeng/rating';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
-import { FormsModule } from '@angular/forms';
 import {DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +24,8 @@ import { CarComponent } from './components/car/car.component';
 import { CarDteailComponent } from './components/car/car-dteail/car-dteail.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +34,12 @@ import { HomeComponent } from './components/home/home.component';
     CarComponent,
     CarDteailComponent,
     NaviComponent,
-    HomeComponent
+    HomeComponent,
+    BrandAddComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     CarouselModule,
     TabMenuModule,
     BrowserModule,

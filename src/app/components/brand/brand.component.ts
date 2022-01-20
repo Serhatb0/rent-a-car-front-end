@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-brand',
   templateUrl: './brand.component.html',
-  styleUrls:['./brand.component.css']
+  styleUrls:['./brand.component.scss']
 })
 export class BrandComponent implements OnInit {
   brands:BrandListModel[] = [];
-  selectedBrand: BrandListModel[] = [];
+  selectedBrand!: BrandListModel[];
   dataLoaded:boolean =false;
   constructor(private brandService:BrandService) { }
 
@@ -25,6 +25,8 @@ export class BrandComponent implements OnInit {
       this.dataLoaded = false
       this.brands =response.data;
       this.dataLoaded = true;
+      console.log(this.brands);
+      
     })
   }
 }
