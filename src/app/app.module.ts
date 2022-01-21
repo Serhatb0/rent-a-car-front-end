@@ -19,6 +19,22 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastrModule} from "ngx-toastr";
+import {TableModule} from 'primeng/table';
+import {ToastModule} from 'primeng/toast';
+import {SliderModule} from 'primeng/slider';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {DialogModule} from 'primeng/dialog';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {FileUploadModule} from 'primeng/fileupload';
+import {ToolbarModule} from 'primeng/toolbar';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,10 +48,12 @@ import { HomeComponent } from './components/home/home.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
-import { RentalAddComponent } from './components/rental-add/rental-add.component'
+import { RentalAddComponent } from './components/rental/rental-add/rental-add.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CityComponent } from './components/city/city.component';
 import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { RentalComponent } from './components/rental/rental.component';
 
 @NgModule({
   declarations: [
@@ -51,9 +69,31 @@ import { CarAddComponent } from './components/car/car-add/car-add.component';
     RentalAddComponent,
     CityComponent,
     CarAddComponent,
+    PaymentComponent,
+    RentalComponent,
 
   ],
   imports: [
+    ProgressSpinnerModule,
+    BrowserModule,
+    RadioButtonModule,
+    TableModule,
+    CalendarModule,
+		SliderModule,
+		DialogModule,
+		MultiSelectModule,
+		ContextMenuModule,
+		DropdownModule,
+		ButtonModule,
+		ToastModule,
+    InputTextModule,
+    ProgressBarModule,
+    HttpClientModule,
+    FileUploadModule,
+    ToolbarModule,
+    RatingModule,
+    InputTextareaModule,
+    ConfirmDialogModule,
     MessagesModule,
     MessageModule,
     InputNumberModule,

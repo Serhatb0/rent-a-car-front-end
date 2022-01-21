@@ -1,9 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
-import { CarListModel } from './../../models/car/carListModel';
-import { CarService } from './../../services/car/car.service';
-import { CityService } from './../../services/cities/city.service';
-import { CityListModel } from './../../models/city/cityListModel';
-import { RentalService } from './../../services/reantalService/rental.service';
+import { CarListModel } from '../../../models/car/carListModel';
+import { CarService } from '../../../services/car/car.service';
+import { CityService } from '../../../services/cities/city.service';
+import { CityListModel } from '../../../models/city/cityListModel';
+import { RentalService } from '../../../services/rentalService/rental.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,

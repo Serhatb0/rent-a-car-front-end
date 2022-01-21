@@ -17,7 +17,7 @@ export class NaviComponent implements OnInit {
       {label: 'Home', icon: 'pi pi-fw pi-home' ,routerLink:"/home" },
       {label: 'Rental', icon: 'pi pi-fw pi-car', routerLink:"/car"},
       {label: 'Car Added', icon: 'pi pi-fw pi-pencil' ,routerLink:"/cars/add" },
-      {label: 'Documentation', icon: 'pi pi-fw pi-file'},
+      {label: 'Rentals', icon: 'pi pi-credit-card' ,routerLink:"/rentals"},
       {label: 'Settings', icon: 'pi pi-fw pi-cog'}
   ];
 

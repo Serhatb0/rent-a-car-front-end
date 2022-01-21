@@ -13,16 +13,13 @@ import { BrandService } from 'src/app/services/brand/brand.service';
   styleUrls: ['./brand-add.component.css'],
 })
 export class BrandAddComponent implements OnInit {
-  
-
   brandAddForm = new FormGroup({
     name: new FormControl(''),
-   
   });
   constructor(
     private formBuilder: FormBuilder,
     private brandService: BrandService,
-    private toastrService:ToastrService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -39,29 +36,15 @@ export class BrandAddComponent implements OnInit {
     if (this.brandAddForm.valid) {
       let createBrandModel = Object.assign({}, this.brandAddForm.value);
       console.log(createBrandModel);
-      
-      this.brandService.add(createBrandModel).subscribe(
-        (response) => {
-          if(response.success){
-            this.toastrService.success(response.message, 'Başarılı');
-          }else{
-            this.toastrService.error(
-              response.message,
-              'Doğrulama hatası'
-            );
-          }
 
-        
-        },
-        (responseError) => {
-          if (responseError.error.Errors.length > 0) {
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
-             
-            }
-          }
+      this.brandService.add(createBrandModel).subscribe((response) => {
+        if (response.success) {
+          this.toastrService.success(response.message, 'Başarılı');
+        } else {
+          this.toastrService.error(response.message, 'Doğrulama hatası');
         }
-      );
-    }  else {
+      });
+    } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
   }

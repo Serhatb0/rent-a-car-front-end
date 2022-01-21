@@ -1,0 +1,234 @@
+<div class="card">
+  <p-table
+    #dt
+    [value]="rentals"
+    [rows]="10"
+    [paginator]="true"
+    [globalFilterFields]="[
+      'name',
+      'country.name',
+      'representative.name',
+      'status'
+    ]"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        <h5 class="p-m-0">Manage Rentals</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" placeholder="Search..." />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="name">
+          İmage <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="name">
+          pickUpCityName <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="inventoryStatus">
+          returnCityName <p-sortIcon field="inventoryStatus"></p-sortIcon>
+        </th>
+        <th pSortableColumn="price">
+          Daily Price <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th pSortableColumn="category">
+          rentDate <p-sortIcon field="category"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="inventoryStatus">
+          rentedKilometer <p-sortIcon field="inventoryStatus"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="inventoryStatus">
+          email <p-sortIcon field="inventoryStatus"></p-sortIcon>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rentals>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="rentals"></p-tableCheckbox>
+        </td>
+        <td>
+          <img
+            style="height: 50px; width: 50px"
+            src="https://www.freepnglogos.com/uploads/honda-car-png/honda-car-upcoming-new-honda-cars-india-new-honda-3.png"
+          />
+        </td>
+
+        <td>{{ rentals.pickUpCityName }}</td>
+        <td>{{ rentals.returnCityName }}</td>
+        <td>{{ rentals.carDailyPrice | currency: "USD" }}</td>
+        <td>{{ rentals.rentDate }}</td>
+        <td>{{ rentals.rentedKilometer }}</td>
+        <td>{{ rentals.email }}</td>
+
+        <td>
+          <p-rating
+            [ngModel]="rentals.rating"
+            [readonly]="true"
+            [cancel]="false"
+          ></p-rating>
+        </td>
+        <td>
+          <span [class]="'product-badge status-'">{{
+            rentals.inventoryStatus
+          }}</span>
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi-euro"
+            (click)="showRentalDteail(rentals.id)"
+            class="p-button-rounded p-button-success p-mr-2"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        In total there are Rentals.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [style]="{ width: '500px', height: '800px', overflow: 'auto' }"
+  [contentStyle]="{ height: '2000px' }"
+  [(visible)]="rentalDteail"
+  header="Rental Details"
+  [modal]="false"
+  styleClass="p-fluid"
+>
+  <ng-template *ngIf="false" pTemplate="content">
+    <p-progressSpinner
+      style="margin-left: 180px"
+      [style]="{ width: '50px', height: '50px' }"
+      styleClass="custom-spinner"
+      strokeWidth="8"
+      fill="var(--surface-ground)"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </ng-template>
+  <ng-template *ngIf="true" pTemplate="content">
+    <form [formGroup]="rentalAddForm">
+      <label>pickUpCityName:</label>
+      <p-dropdown
+        class="p-field"
+        id="city"
+        [options]="cities"
+        optionLabel="name"
+        formControlName="pickUpCityId"
+      >
+        <ng-template  pTemplate="selectedItem">
+          <div   class="country-item country-item-value" *ngIf="pickUpCityName">
+            <div    >{{ pickUpCityName }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <br />
+      <label for="name">returnCityName</label>
+
+      <p-dropdown
+        class="p-field"
+        id="city"
+        [options]="cities"
+        optionLabel="name"
+        formControlName="returnCityId"
+      >
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="returnCityName">
+            <div  >{{ returnCityName }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <br />
+      <label for="name">rentedKilometer</label>
+      <div class="p-field">
+        <input
+          type="number"
+          [ngModel]="rentedKilometer"
+          formControlName="rentedKilometer"
+          pInputText
+          id="name"
+          required
+          autofocus
+        />
+      </div>
+      <br />
+
+      <label for="name">returnedKilometer</label>
+      <div class="p-field">
+        <input
+          type="number"
+          formControlName="returnedKilometer"
+          pInputText
+          id="name"
+          required
+          autofocus
+        />
+      </div>
+      <br />
+      <label for="name">rentDate</label>
+      <p-calendar
+        [(ngModel)]="rentDate"
+        [showIcon]="true"
+        formControlName="rentDate"
+        dateFormat="yy.dd.mm"
+      ></p-calendar>
+      <br />
+      <label for="name">returnDate</label>
+      <p-calendar
+        [ngModel]="returnDate"
+        [showIcon]="true"
+        formControlName="returnDate"
+        dateFormat="yy.dd.mm"
+      ></p-calendar>
+    </form>
+    <div class="p-formgrid p-grid">
+      <div class="p-field p-col">
+        <label for="price">Price</label>
+        <p-inputNumber
+          [(ngModel)]="dailyPrice"
+          id="price"
+          mode="currency"
+          currency="USD"
+          locale="en-US"
+        ></p-inputNumber>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancel"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideRentalDteail()"
+    ></button>
+    <a style="text-decoration: none" [routerLink]="['/payment', rental.id]">
+    <button
+    (click)="add()"
+      pButton
+      pRipple
+      label="Payment"
+      icon="pi pi-credit-card"
+      class="p-button-text"
+    ></button></a>
+  </ng-template>
+</p-dialog>
