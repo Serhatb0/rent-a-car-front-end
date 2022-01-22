@@ -8,4 +8,5 @@ export interface UpdateRentalModel {
   rentDate: Date;
   customerId: number;
   carId: number;
+  promosyonCode:string
 }

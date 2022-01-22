@@ -10,5 +10,6 @@ export interface RentalListModel{
     returnDate: Date,
     email:string,
     carDailyPrice: number,
-    carId:number
+    carId:number,
+    promosyonId:number
 }

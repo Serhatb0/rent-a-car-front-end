@@ -1,3 +1,4 @@
+import { SingleResponseModel } from './../../models/singleResponseModel';
 import { UpdateRentalModel } from './../../models/rental/updateRentalModel';
 import { RentalListModel } from './../../models/rental/rentalListModel';
 import { ResponseModel } from '../../models/responseModel';
@@ -27,6 +28,10 @@ export class RentalService {
   update(updateRentalModel:UpdateRentalModel):Observable<ResponseModel>{
     return this.httpClient.put<ResponseModel>(this.apiUrl+"update",updateRentalModel)
     
+  }
+
+  findById(id:number):Observable<SingleResponseModel<RentalListModel>>{
+    return this.httpClient.get<SingleResponseModel<RentalListModel>>(this.apiUrl +`?id=${id}`)
   }
 
 

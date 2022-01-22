@@ -221,9 +221,9 @@
       class="p-button-text"
       (click)="hideRentalDteail()"
     ></button>
-    <a style="text-decoration: none" [routerLink]="['/payment', rental.id]">
+    <a     (click)="add()" style="text-decoration: none"  [routerLink]="['/payment', rental.id]">
     <button
-    (click)="add()"
+
       pButton
       pRipple
       label="Payment"

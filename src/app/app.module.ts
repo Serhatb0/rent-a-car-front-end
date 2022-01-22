@@ -54,6 +54,7 @@ import { CityComponent } from './components/city/city.component';
 import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { RentalComponent } from './components/rental/rental.component';
     CarAddComponent,
     PaymentComponent,
     RentalComponent,
+    FooterComponent,
 
   ],
   imports: [

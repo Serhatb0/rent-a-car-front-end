@@ -40,6 +40,7 @@ export class RentalComponent implements OnInit {
     carId: new FormControl(''),
     returnedKilometer: new FormControl(''),
     returnDate: new FormControl(''),
+    promosyonCode:new FormControl(''),
   });
   constructor(
     private rentalService: RentalService,
@@ -65,6 +66,7 @@ export class RentalComponent implements OnInit {
       carId: [this.rental.carId, Validators.required],
       returnedKilometer: ['', Validators.required],
       returnDate: ['', Validators.required],
+      promosyonCode:['123',Validators.required]
     });
   }
 
@@ -89,27 +91,23 @@ export class RentalComponent implements OnInit {
   }
   getCity() {
     this.cityService.getCity().subscribe((response) => {
-      this.dataLoaded = false;
       this.cities = response.data;
-      this.dataLoaded = true;
     });
   }
   getRentalsById(rentalId) {
     this.rental = this.rentals.find((x) => x.id === rentalId);
-    console.log(this.rental);
-    
   }
 
-  add() {
-    let createRentalModel = Object.assign({}, this.rentalAddForm.value);
-    console.log(createRentalModel);
 
+  add() {
     if (this.rentalAddForm.valid) {
       let updateRentalModel = Object.assign({}, this.rentalAddForm.value);
 
       this.rentalService.update(updateRentalModel).subscribe((response) => {
         if (response.success) {
+          this.dataLoaded=false
           this.toastrService.success(response.message, 'Başarılı');
+          this.dataLoaded=true
         } else {
           this.toastrService.error(response.message, 'Doğrulama hatası');
         }
