@@ -1,73 +1,139 @@
-<div class="content">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header"><h5 class="title">Rental Added</h5></div>
-      <div class="card-body">
-        <form [formGroup]="individualCustomerAddForm">
-          <div class="form-group">
-            <label for="name">Pickup City</label>
-            <br />
-            <p-dropdown
-              id="city"
-              [options]="cities"
-              optionValue="id"
-              optionLabel="name"
-              formControlName="pickUpCityId"
-            ></p-dropdown>
-          </div>
-          <div class="form-group">
-            <label for="name">Return City</label>
-            <br />
+<section
+  class="hero-wrap hero-wrap-2 js-fullheight"
+  style="background-image: url('../../../assets/images/bg_3.jpg')"
+  data-stellar-background-ratio="0.5"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"
+    >
+      <div class="col-md-9 ftco-animate pb-5">
+        <p class="breadcrumbs">
+          <span class="mr-2"
+            ><a [routerLink]="['/']"
+              >Home <i class="ion-ios-arrow-forward"></i></a
+          ></span>
+          <span>Cars <i class="ion-ios-arrow-forward"></i></span>
+        </p>
+        <h1 class="mb-3 bread">Make Your Rental</h1>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <p-dropdown
-              id="city"
-              [options]="cities"
-              optionValue="id"
-              optionLabel="name"
-              formControlName="returnCityId"
-            ></p-dropdown>
+<div style="margin-top: 50px" class="container d-lg-flex">
+  <div class="box-1 bg-light user">
+    <div class="box-inner-1 pb-3 mb-3">
+      <div class="d-flex justify-content-between mb-3 userdetails">
+        <p class="fw-bold">Daily Price</p>
+        <p class="fw-lighter"><span class="fas fa-dollar-sign"></span>{{car.dailyPrice}}$</p>
+      </div>
+      <div
+        id="my"
+        class="carousel slide carousel-fade img-details"
+        data-bs-ride="carousel"
+        data-bs-interval="2000"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="../../../../assets/images/car-8.jpg"
+              class="d-block w-100"
+            />
           </div>
-          <div class="mb-3">
-            <label for="name">rentedKilometer</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="name"
-                formControlName="rentedKilometer"
-                class="form-control"
-                placeholder="rentedKilometer"
-              />
+        </div>
+      </div>
+      <p class="dis my-3 info">
+      {{car.description}}
+      </p>
+      <p class="dis mb-3 updates">Segment:{{car.segmentName}}</p>
+      <p class="dis mb-3 updates">Brand:{{car.brandName}}</p>
+      <p class="dis mb-3 updates">Color:{{car.colorName}}</p>
+      <p class="dis mb-3 different">Addtional Services:</p>
+      <form [formGroup]="additionalServicesAddForm">
+        <p-multiSelect
+        formControlName="additionalServiceListDto"
+          [options]="additionalServices"
+          [style]="{ width: '100%' }"
+          optionLabel="name"
+          [(ngModel)]="selectedAdditional"
+          
+        >
+        <ng-template let-additionalServices pTemplate="item">
+          <div >
+              <div style="float: left;">{{additionalServices.name}}:  {{additionalServices.price}}$</div>  
+          </div>
+      </ng-template>
+      
+      </p-multiSelect>
+      </form>
+      <div>
+        <p class="dis footer my-3">
+          Here is a quick guide on how to apply them
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="box-2">
+    <div class="box-inner-2">
+      <div>
+        <p class="fw-bold">Payment Details</p>
+        <p class="dis mb-3">
+          Complete your purchase by providing your payment details
+        </p>
+      </div>
+      <form [formGroup]="individualCustomerAddForm">
+        <div class="mb-3">
+          <p class="dis fw-bold mb-2">pickUpCityName</p>
+          <p-dropdown
+            id="city"
+            [style]="{ width: '100%' }"
+            [options]="cities"
+            optionValue="id"
+            optionLabel="name"
+            formControlName="pickUpCityId"
+          ></p-dropdown>
+        </div>
+        <div class="mb-3">
+          <p class="dis fw-bold mb-2">Return City Name</p>
+          <p-dropdown
+            id="city"
+            [style]="{ width: '100%' }"
+            [options]="cities"
+            optionValue="id"
+            optionLabel="name"
+            formControlName="returnCityId"
+          ></p-dropdown>
+        </div>
+        <div class="mb-3">
+          <p class="dis fw-bold mb-2">Rented Kilometer</p>
+          <input
+            type="number"
+            id="name"
+            formControlName="rentedKilometer"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="name">Rent date</label>
+          <br />
+          <p-calendar
+            [style]="{ width: '100%' }"
+            [showIcon]="true"
+            formControlName="rentDate"
+            dateFormat="yy.dd.mm"
+          ></p-calendar>
+        </div>
+
+        <div class="address">
+          <div class="d-flex flex-column dis">
+            <div (click)="add()" class="btn btn-primary mt-2">
+              Rental<span class="fas fa-dollar-sign px-1"></span>{{car.dailyPrice}}$
             </div>
           </div>
-          <div class="form-group">
-            <label for="name">rent date</label>
-            <br />
-            <p-calendar
-              [showIcon]="true"
-              formControlName="rentDate"
-              dateFormat="yy.dd.mm"
-            ></p-calendar>
-          </div>
-          <div class="mb-3">
-            <label for="name">customerId</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="name"
-                formControlName="customerId"
-                class="form-control"
-                placeholder="customerId"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="name">DailyPrice : {{car.dailyPrice}} </label>
-          </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

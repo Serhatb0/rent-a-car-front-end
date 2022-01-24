@@ -1,3 +1,6 @@
+import { BlogComponent } from './components/blog/blog.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { PricingComponent } from './components/pricing/pricing.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car/car-add/car-add.component';
@@ -14,17 +17,23 @@ import { CityComponent } from './components/city/city.component';
 
 const routes: Routes = [
   { path: 'car/:carId', component: CarDteailComponent },
-  {path:"car", component:CarComponent},
+  {path:"cars", component:CarComponent},
+
   {path: "", component:HomeComponent},
   {path: "home", component:HomeComponent},
   {path:"brand" ,component:BrandComponent},
   {path:"brand/add" ,component:BrandAddComponent},
   {path:"color/add" ,component:ColorAddComponent},
-  {path:"car/rental/:carId" ,component:RentalAddComponent},
+  {path:"rental/:carId" ,component:RentalAddComponent},
   {path:"city" ,component:CityComponent},
   {path:"cars/add",component:CarAddComponent },
   {path:"payment/:rentalId",component:PaymentComponent },
-  {path:"rentals",component:RentalComponent }
+  {path:"rentals",component:RentalComponent },
+  {path:"pricing",component:PricingComponent},
+  {path:"contact",component:ContactComponent},
+  {path:"blog",component:BlogComponent},
+
+
 
 
 

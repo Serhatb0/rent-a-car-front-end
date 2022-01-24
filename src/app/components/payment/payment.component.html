@@ -1,3 +1,30 @@
+  
+  
+<section  class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../../assets/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+      <div class="col-md-9 ftco-animate pb-5">
+        <p class="breadcrumbs"><span class="mr-2"><a [routerLink]="['/']">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a [routerLink]="['/rentals']">Rental<i class="ion-ios-arrow-forward"></i></a></span> <span>Payment<i class="ion-ios-arrow-forward"></i></span></p>
+        <h1 class="mb-3 bread">Payment</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
 
 <div  *ngIf="dataLoaded == false">
   <p-progressSpinner
@@ -9,7 +36,7 @@
     animationDuration=".5s"
   ></p-progressSpinner>
 </div>
-<div *ngIf="dataLoaded == true">
+<div style="margin-top: 10%;" *ngIf="dataLoaded == true">
   <div  class="container">
     <div class="row m-0">
       <div class="col-lg-7 pb-5 pe-lg-5">
@@ -156,3 +183,6 @@
     </div>
   </div>
 </div>
+
+</body>
+</html>

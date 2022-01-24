@@ -1,3 +1,4 @@
+import { NaviComponent } from './components/navi/navi.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
@@ -11,6 +12,7 @@ import {PanelModule} from 'primeng/panel';
 import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import {ButtonModule} from 'primeng/button';
+import {GMapModule} from 'primeng/gmap';
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {DropdownModule } from 'primeng/dropdown';
@@ -35,7 +37,6 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -43,8 +44,6 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CarComponent } from './components/car/car.component';
 import { CarDteailComponent } from './components/car/car-dteail/car-dteail.component';
-import { NaviComponent } from './components/navi/navi.component';
-import { HomeComponent } from './components/home/home.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
@@ -55,6 +54,10 @@ import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +66,6 @@ import { FooterComponent } from './components/footer/footer.component';
     ColorComponent,
     CarComponent,
     CarDteailComponent,
-    NaviComponent,
-    HomeComponent,
     BrandAddComponent,
     ColorAddComponent,
     RentalAddComponent,
@@ -73,9 +74,15 @@ import { FooterComponent } from './components/footer/footer.component';
     PaymentComponent,
     RentalComponent,
     FooterComponent,
+    HomeComponent,
+    NaviComponent,
+    PricingComponent,
+    ContactComponent,
+    BlogComponent,
 
   ],
   imports: [
+    GMapModule,
     ProgressSpinnerModule,
     BrowserModule,
     RadioButtonModule,

@@ -23,6 +23,12 @@ export class CarService {
     );
   }
 
+  findBySegmentName(segmentName:string):Observable<ListResponseModel<CarListModel>>{
+    return this.httpClient.get<ListResponseModel<CarListModel>>(
+      this.apiUrl + `/findBySegmentName?segmentName=${segmentName}`
+    )
+  }
+
   getCarsPage(pageNo:number,pageSize:number):Observable<ListResponseModel<CarListModel>>{
     return this.httpClient.get<ListResponseModel<CarListModel>>(
       this.apiUrl + "/getallrentalpage"

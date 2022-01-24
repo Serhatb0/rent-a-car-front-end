@@ -20,8 +20,8 @@ export class RentalService {
     return this.httpClient.get<ListResponseModel<RentalListModel>>(this.apiUrl +"getall")
   }
 
-  add(createIndividualCustomerModel:CreateIndividualCustomerModel):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(this.apiUrl+"addIndividualCustomer",createIndividualCustomerModel)
+  add(createIndividualCustomerModel:CreateIndividualCustomerModel):Observable<SingleResponseModel<RentalListModel>>{
+    return this.httpClient.post<SingleResponseModel<RentalListModel>>(this.apiUrl+"addIndividualCustomer",createIndividualCustomerModel)
     
   }
 
