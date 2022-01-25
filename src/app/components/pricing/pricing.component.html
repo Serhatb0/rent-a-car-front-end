@@ -41,7 +41,7 @@
                               </td>
                               
                               <td class="price">
-                                  <p class="btn-custom"><a href="#">Rent a car</a></p>
+                                  <p class="btn-custom"><a [routerLink]="['/rental',car.id]">Rent a car</a></p>
                                   <div class="price-rate">
                                       <h3>
                                           <span class="num"><small class="currency">$</small>{{car.dailyPrice //24}}</span>
@@ -52,7 +52,7 @@
                               </td>
                               
                               <td class="price">
-                                  <p class="btn-custom"><a href="#">Rent a car</a></p>
+                                  <p class="btn-custom"><a  [routerLink]="['/rental',car.id]">Rent a car</a></p>
                                   <div class="price-rate">
                                       <h3>
                                           <span class="num"><small class="currency">$</small>{{car.dailyPrice}}</span>
@@ -63,7 +63,7 @@
                               </td>
 
                               <td class="price">
-                                  <p class="btn-custom"><a href="#">Rent a car</a></p>
+                                  <p class="btn-custom"><a   [routerLink]="['/rental',car.id]">Rent a car</a></p>
                                   <div class="price-rate">
                                       <h3>
                                           <span class="num"><small class="currency">$</small>{{car.dailyPrice * 12 }}</span>

@@ -1,96 +1,172 @@
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../../../assets/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+<section
+  class="hero-wrap hero-wrap-2 js-fullheight"
+  style="background-image: url('../../../../assets/images/bg_3.jpg')"
+  data-stellar-background-ratio="0.5"
+>
   <div class="overlay"></div>
   <div class="container">
-    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+    <div
+      class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"
+    >
       <div class="col-md-9 ftco-animate pb-5">
-        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
-        <h1 class="mb-3 bread">About Us</h1>
+        <p class="breadcrumbs">
+          <span class="mr-2"
+            ><a [routerLink]="['']"
+              >Home <i class="ion-ios-arrow-forward"></i></a
+          ></span>
+          <span>Cars<i class="ion-ios-arrow-forward"></i></span>
+        </p>
+        <h1 class="mb-3 bread">Car Added</h1>
       </div>
     </div>
   </div>
 </section>
 
-<div class="content">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header"><h5 class="title">Car Added</h5></div>
-      <div class="card-body">
-        <form [formGroup]="carAddForm">
-          <div class="form-group">
-            <label for="name">Daily Price</label>
-            <br />
-            <p-inputNumber
-              [useGrouping]="false"
-              formControlName="dailyPrice"
-            ></p-inputNumber>
+<div class="container tm-mt-big tm-mb-big">
+  <div class="row">
+    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+      <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="tm-block-title d-inline-block">Add Product</h2>
           </div>
-          <div class="form-group">
-            <label for="name">Model Year</label>
-            <br />
-            <p-inputNumber
-              [useGrouping]="false"
-              formControlName="modelYear"
-            ></p-inputNumber>
-          </div>
-          <div class="form-group">
-            <label for="name">Description</label>
-            <br />
-            <input formControlName="description" type="text" pInputText />
-          </div>
-          <div class="form-group">
-            <label for="name">Findex Score</label>
-            <br />
-            <p-inputNumber formControlName="findexScore"></p-inputNumber>
-          </div>
-          <div class="form-group">
-            <label for="name">Kilometer</label>
-            <br />
-            <p-inputNumber formControlName="kilometer"></p-inputNumber>
-          </div>
-          <div class="form-group">
-            <label for="name">Color</label>
-            <br />
-            <p-dropdown
-              id="color"
-              [options]="colors"
-              optionValue="id"
-              optionLabel="name"
-              formControlName="colorId"
-            ></p-dropdown>
-          </div>
-          <div class="form-group">
-            <label for="name">Brand</label>
-            <br />
+        </div>
+        <div class="row tm-edit-product-row">
+          <div class="col-xl-6 col-lg-6 col-md-12">
+            <form [formGroup]="carAddForm" class="tm-edit-product-form">
+              <div class="form-group mb-3">
+                <label for="name">DailyPrice </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="number"
+                  class="form-control validate"
+                  required
+                  formControlName="dailyPrice"
+                />
+              </div>
+              <div class="form-group mb-3">
+                <label for="description">Description</label>
+                <textarea
+                  class="form-control validate"
+                  rows="3"
+                  formControlName="description"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="name">Brand</label>
+                <br />
+                <p-dropdown
+                  id="brand"
+                  [options]="brands"
+                  [style]="{ width: '100%' }"
+                  optionValue="id"
+                  optionLabel="name"
+                  formControlName="brandId"
+                ></p-dropdown>
+              </div>
+              <div class="row">
+                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                  <label for="name">Color</label>
+                  <br />
+                  <p-dropdown
+                    id="color"
+                    [options]="colors"
+                    [style]="{ width: '100%' }"
+                    optionValue="id"
+                    optionLabel="name"
+                    formControlName="colorId"
+                  ></p-dropdown>
+                </div>
+                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                  <label for="name">Segments</label>
+                  <br />
 
-            <p-dropdown
-              id="brand"
-              [options]="brands"
-              optionValue="id"
-              optionLabel="name"
-              formControlName="brandId"
-            ></p-dropdown>
+                  <p-dropdown
+                    id="segment"
+                    [style]="{ width: '100%' }"
+                    [options]="segments"
+                    optionValue="id"
+                    optionLabel="segmentName"
+                    formControlName="segmentId"
+                  ></p-dropdown>
+                </div>
+                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                  <label for="name">Minimum Age</label>
+                  <br />
+                  <input
+                    id="name"
+                    name="name"
+                    type="number"
+                    formControlName="minimumAge"
+                    class="form-control validate"
+                    required
+                  />
+                </div>
+                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                  <label for="name">Kilometer</label>
+                  <br />
+                  <input
+                    id="name"
+                    name="name"
+                    formControlName="kilometer"
+                    type="number"
+                    class="form-control validate"
+                    required
+                  />
+                </div>
+                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                  <label for="name">Model Year</label>
+                  <br />
+                  <input
+                    id="name"
+                    name="name"
+                    formControlName="modelYear"
+                    type="number"
+                    class="form-control validate"
+                    required
+                  />
+                </div>
+                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                  <label for="name">Findex Scroe</label>
+                  <br />
+                  <input
+                    id="name"
+                    name="name"
+                    formControlName="findexScore"
+                    type="number"
+                    class="form-control validate"
+                    required
+                  />
+                </div>
+              </div>
+         
+            </form>
           </div>
-          <div class="form-group">
-            <label for="name">Segments</label>
-            <br />
-
-            <p-dropdown
-              id="segment"
-              [options]="segments"
-              optionValue="id"
-              optionLabel="segmentName"
-              formControlName="segmentId"
-            ></p-dropdown>
+          <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+            <div class="tm-product-img-dummy mx-auto">
+              <i class="fas fa-cloud-upload-alt tm-upload-icon"></i>
+            </div>
+            <div class="custom-file mt-3 mb-3">
+              <input id="fileInput" type="file" style="display: none" />
+              <input
+                type="button"
+                class="btn btn-primary btn-block mx-auto"
+                value="UPLOAD CAR IMAGE"
+              />
+            </div>
+            
           </div>
-          <div class="form-group">
-            <label for="name">Minimum Age</label>
-            <br />
-            <p-inputNumber formControlName="minimumAge"></p-inputNumber>
-          </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+        </div>
+        <div (click)="add()" class="col-12">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block text-uppercase"
+          >
+            Add Car Now
+          </button>
+        </div>
       </div>
     </div>
   </div>

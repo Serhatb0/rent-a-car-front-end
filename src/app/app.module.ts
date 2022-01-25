@@ -58,6 +58,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { BlogComponent } from './components/blog/blog.component';
     PricingComponent,
     ContactComponent,
     BlogComponent,
+    RegisterComponent,
+    LoginComponent,
 
   ],
   imports: [

@@ -27,6 +27,7 @@ export class RentalAddComponent implements OnInit {
   carId: number;
   rentalId: number;
   selectedAdditional: [] = [];
+
   individualCustomerAddForm = new FormGroup({
     pickUpCityId: new FormControl(''),
     returnCityId: new FormControl(''),
@@ -35,6 +36,8 @@ export class RentalAddComponent implements OnInit {
     customerId: new FormControl(''),
     carId: new FormControl(''),
   });
+
+  
 
   additionalServicesAddForm = new FormGroup({
     additionalServiceListDto: new FormControl(''),

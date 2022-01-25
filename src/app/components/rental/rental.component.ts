@@ -11,7 +11,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { SelectItem } from 'primeng/api';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-rental',
   templateUrl: './rental.component.html',
@@ -29,6 +29,7 @@ export class RentalComponent implements OnInit {
   rentDate: Date;
   returnDate: Date;
   dailyPrice: number;
+  status: Boolean;
   cities: CityListModel[] = [];
   rentalAddForm = new FormGroup({
     id: new FormControl(''),
@@ -40,24 +41,29 @@ export class RentalComponent implements OnInit {
     carId: new FormControl(''),
     returnedKilometer: new FormControl(''),
     returnDate: new FormControl(''),
-    promosyonCode:new FormControl(''),
+    promosyonCode: new FormControl(''),
   });
   constructor(
     private rentalService: RentalService,
     private formBuilder: FormBuilder,
     private carService: CarService,
     private cityService: CityService,
-    private toastrService:ToastrService
+    private toastrService: ToastrService,
+    private router:Router
   ) {}
 
+
+
+
   ngOnInit(): void {
+
     this.getRentals();
     this.getCity();
     this.createRentalAddForm();
   }
   createRentalAddForm() {
     this.rentalAddForm = this.formBuilder.group({
-      id:[this.rental.id,Validators.required],
+      id: [this.rental.id, Validators.required],
       pickUpCityId: [this.rental.pickUpCityId, Validators.required],
       returnCityId: [this.rental.returnCityId, Validators.required],
       rentedKilometer: ['', Validators.required],
@@ -66,7 +72,7 @@ export class RentalComponent implements OnInit {
       carId: [this.rental.carId, Validators.required],
       returnedKilometer: ['', Validators.required],
       returnDate: ['', Validators.required],
-      promosyonCode:['123',Validators.required]
+      promosyonCode: ['',this.status],
     });
   }
 
@@ -98,16 +104,18 @@ export class RentalComponent implements OnInit {
     this.rental = this.rentals.find((x) => x.id === rentalId);
   }
 
-
-  add() {
+  
+  add(rentalId:number) {
     if (this.rentalAddForm.valid) {
       let updateRentalModel = Object.assign({}, this.rentalAddForm.value);
 
       this.rentalService.update(updateRentalModel).subscribe((response) => {
         if (response.success) {
-          this.dataLoaded=false
+          this.dataLoaded = false;
           this.toastrService.success(response.message, 'Başarılı');
-          this.dataLoaded=true
+          this.dataLoaded = true;
+          this.router.navigate(['/payment', rentalId])
+        
         } else {
           this.toastrService.error(response.message, 'Doğrulama hatası');
         }

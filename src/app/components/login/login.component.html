@@ -1,0 +1,110 @@
+<div
+  style="height: 50px !important"
+  class="hero-wrap ftco-degree-bg"
+  style="background-image: url('../../../assets/images/bg_1.jpg')"
+  data-stellar-background-ratio="0.5"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row no-gutters slider-text justify-content-start align-items-center justify-content-center"
+    >
+      <div class="col-lg-8 ftco-animate" style="opacity: 1">
+        <div class="text w-100 text-center mb-md-5 pb-md-5">
+          <h1 class="mb-4">Fast &amp; Fast Login And Rent Your Car</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+          <label for="reg-log"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <form [formGroup]="individualLoginAddForm">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Log In Individual</h4>
+                      <div class="form-group">
+                        <input
+                        formControlName="firstName"
+                          type="text"
+                          name="firstName"
+                          class="form-style"
+                          placeholder="FirstName"
+                          id="firstName"
+                          autocomplete="off"
+                        />
+                        <i class="input-icon uil uil-at"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input
+                        formControlName="passwordIndividual"
+
+                          type="password"
+                          name="logpass"
+                          class="form-style"
+                          placeholder="Your Password"
+                          id="logpass"
+                          autocomplete="off"
+                        />
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <a (click)="addIndividual()" class="btn mt-4">submit</a>
+                      <p class="mb-0 mt-4 text-center">
+                        <a href="#0" class="link">Forgot your password?</a>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="card-back">
+                <div class="center-wrap">
+                    <form [formGroup]="corporateLoginAddForm">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Log In Corporate</h4>
+                    <div class="form-group">
+                      <input
+                      formControlName="companyName"
+                        type="text"
+                        name="companyName"
+                        class="form-style"
+                        placeholder="CompanyName"
+                        id="logname"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-user"></i>
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <input
+                        type="password"
+                      formControlName="password"
+
+                        name="logpass"
+                        class="form-style"
+                        placeholder="Your Password"
+                        id="logpass"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <a (click)="addCorporate()" class="btn mt-4">submit</a>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
